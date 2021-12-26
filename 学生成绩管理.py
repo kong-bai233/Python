@@ -9,14 +9,14 @@ while 1:
         if len(height)==0:
             print("还没有录入分数！\n")
         if len(height)!=0:
-            height.sort()
-            print("最高分：",height[-1],"\n")
+            a=sorted(height)
+            print("最高分：",a[-1],"\n")
     def worst(lgarde):
         if len(lgarde)==0:
             print("还没有录入分数！\n")
         if len(lgarde)!=0:
-            lgarde.sort()
-            print("最低分：",lgarde[0],"\n")
+            b=sorted(lgarde)
+            print("最低分：",b[0],"\n")
     user=input("→")
     if user=='退出' or user=='exit':
         exit()
