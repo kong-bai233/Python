@@ -1,11 +1,14 @@
+import os
+print("                                         学   生   成   绩   管   理                                   ")
+print("输入帮助  或  help，以了解使用方式")
 listgd=[]
 history=[]
 names=[]
 nam=None
 gard=None
-help_name=["录入","名字录入","最高分","最低分","所有分数","具体分数","个人","高于","名字高于","清空历史","帮助"]
+help_name=["录入","名字录入","最高分","最低分","所有分数","具体分数","个人","高于","名字高于","清空历史","帮助","退出","清屏"]
 #11个
-help_detail=["仅支持录入分数","需要带有名字或学号录入分数 例如:张三 100","将会输出录入分数中的最高分","将会输出录入分数中的最低分","仅输出上一次录入的所有分数","将会输出上一次录入的所有分数及其对应名字或学号","可以通过输入名字或学号查看对应分数","需要输入一个分数，将会输出高于这个分数的所有分数","需要输入一个分数，将会输出高于这个分数的所有名字或学号","将会删除上一次录入的分数记录","输出所有命令及其用途"]
+help_detail=["仅支持录入分数","需要带有名字或学号录入分数 例如:张三 100","将会输出录入分数中的最高分","将会输出录入分数中的最低分","仅输出上一次录入的所有分数","将会输出上一次录入的所有分数及其对应名字或学号","可以通过输入名字或学号查看对应分数","需要输入一个分数，将会输出高于这个分数的所有分数","需要输入一个分数，将会输出高于这个分数的所有名字或学号","将会删除上一次录入的分数记录","输出所有命令及其用途","退出程序","清空程序屏幕显示"]
 while 1:
     def best(height):
             a=sorted(height)
@@ -17,7 +20,7 @@ while 1:
     if user=='退出' or user=='exit':
         exit()
     if user=='录入':
-        listgd.clear()
+        #listgd.clear()
         print("请输入:\n")
         while 1:
             garde=input("")
@@ -69,8 +72,11 @@ while 1:
             print(item)
         print("\n")
     if user=='具体分数':
-        for name,gd in nam_garde.items():
-            print(name,":",gd)
+        try:
+            for name,gd in nam_garde.items():
+                print(name,":",gd)
+        except NameError:
+            print("未录入任何名字！")
         print("\n")
     if user=='个人':
         print("输入out退出个人成绩查询")
@@ -107,3 +113,5 @@ while 1:
         for item in the_garde:
             print(item)
         print('\n')
+    if user=='清屏' or user=='cls':
+        os.system("cls")
